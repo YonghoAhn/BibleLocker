@@ -4,13 +4,7 @@ import android.content.Context
 import club.biblelocker.biblelocker.R
 import club.biblelocker.biblelocker.models.TodayString
 import org.json.JSONArray
-import org.json.JSONObject
 import java.io.InputStreamReader
-
-
-/**
- * Created by misakamoe on 2018. 4. 6..
- */
 
 class JsonParser {
     fun getBuddaString(context : Context) : TodayString
@@ -20,6 +14,7 @@ class JsonParser {
 
         val jObject = JSONArray(origin).getJSONObject(1).getJSONArray("sentences").getJSONObject(1) //Short index
 
+        
         returnValue.content = jObject.getString("line")
         returnValue.part = jObject.getString("part")
         returnValue.num = jObject.getInt("num")
