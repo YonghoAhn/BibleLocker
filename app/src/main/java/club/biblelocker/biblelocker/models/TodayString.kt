@@ -5,10 +5,10 @@ package club.biblelocker.biblelocker.models
  */
 
 data class TodayString (
-        val content : String,
-        val part : String,
-        val page : Int?,
-        val rows : Int?,
-        val len : Int,
-        val num : Int
+        var content : String,
+        var part : String,
+        var page : Int?,
+        var rows : Int?,
+        var len : Int,
+        var num : Int
 )

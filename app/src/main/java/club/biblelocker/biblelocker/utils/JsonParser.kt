@@ -2,7 +2,10 @@ package club.biblelocker.biblelocker.utils
 
 import android.content.Context
 import club.biblelocker.biblelocker.R
+import club.biblelocker.biblelocker.models.TodayString
+import org.json.JSONArray
 import org.json.JSONObject
+import java.io.InputStreamReader
 
 
 /**
@@ -10,17 +13,17 @@ import org.json.JSONObject
  */
 
 class JsonParser {
-    fun getBibleString(context : Context) : String
+    fun getBuddaString(context : Context) : TodayString
     {
-        val returnValue : String = ""
+        var returnValue = TodayString("","",0,0,0,1)
+        val origin = InputStreamReader(context.resources.openRawResource(R.raw.budda)).readText()
 
-        val rawFile = ByteArray(context.resources.openRawResource(R.raw.budda).available())
-        val origin = String(rawFile)
-        val jObject : JSONObject = JSONObject(origin)
-        for()
-        {
+        val jObject = JSONArray(origin).getJSONObject(1).getJSONArray("sentences").getJSONObject(1) //Short index
 
-        }
+        returnValue.content = jObject.getString("line")
+        returnValue.part = jObject.getString("part")
+        returnValue.num = jObject.getInt("num")
+        returnValue.len = jObject.getInt("len")
 
         return returnValue
     }
