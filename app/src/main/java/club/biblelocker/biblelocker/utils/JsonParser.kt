@@ -6,13 +6,16 @@ import club.biblelocker.biblelocker.R
 import club.biblelocker.biblelocker.models.TodayString
 import org.json.JSONArray
 import java.io.InputStreamReader
+import java.util.*
 
 class JsonParser {
-    fun getBuddaString(context : Context) : TodayString
+
+    fun getBuddaString(context : Context, length: Int) : TodayString
     {
         val returnValue = TodayString("", "", 0, 0, 0, 1)
         try {
-            val jObject = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.budda)).readText()).getJSONObject(1).getJSONArray("sentences").getJSONObject(1) //Short index
+            val jArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.budda)).readText()).getJSONObject(length).getJSONArray("sentences")
+            val jObject = jArray.getJSONObject(Random().nextInt(jArray.length())) //Short index
             returnValue.content = jObject.getString("line")
             returnValue.part = jObject.getString("part")
             returnValue.num = jObject.getInt("num")
@@ -23,10 +26,22 @@ class JsonParser {
         return returnValue
     }
 
-    fun getBibleString(context: Context): TodayString {
+    fun getNewBibleString(context: Context, length: Int): TodayString {
+        var returnValue = getBibleString(context,0,length)
+        return returnValue
+    }
+
+    fun getOldBibleString(context: Context, length : Int): TodayString {
+        var returnValue = getBibleString(context,1,length)
+        return returnValue
+    }
+
+    fun getBibleString(context: Context, time : Int, length: Int): TodayString {
         val returnValue = TodayString("", "", 0, 0, 0, 1)
+
         try {
-            val jObject = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.bible)).readText()).getJSONObject(0).getJSONArray("sentences").getJSONObject(0).getJSONArray("dex").getJSONObject(0) //Short index
+            val jArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.bible)).readText()).getJSONObject(time).getJSONArray("sentences").getJSONObject(length).getJSONArray("dex")
+            val jObject = jArray.getJSONObject(Random().nextInt(jArray.length())) //Short index
             returnValue.content = jObject.getString("line")
             returnValue.part = jObject.getString("part")
             returnValue.num = jObject.getInt("num")
@@ -38,4 +53,5 @@ class JsonParser {
         }
         return returnValue
     }
+
 }
