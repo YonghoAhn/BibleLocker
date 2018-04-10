@@ -3,7 +3,7 @@ package club.biblelocker.biblelocker.utils
 import android.content.Context
 import android.util.Log
 import club.biblelocker.biblelocker.R
-import club.biblelocker.biblelocker.models.TodayString
+import club.biblelocker.biblelocker.Models.TodayString
 import org.json.JSONArray
 import java.io.InputStreamReader
 import java.util.*

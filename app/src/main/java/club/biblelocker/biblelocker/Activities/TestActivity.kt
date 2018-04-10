@@ -7,13 +7,16 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
+import club.biblelocker.biblelocker.MainActivity
 import club.biblelocker.biblelocker.R
+import junit.framework.Test
 import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
 
 class TestActivity : AppCompatActivity() {
 
     var context : Context = applicationContext
+    fun getInstance() : TestActivity { return this }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

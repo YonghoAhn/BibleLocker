@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker.models
+package club.biblelocker.biblelocker.Models
 
 /**
  * Created by misakamoe on 2018. 4. 6..
