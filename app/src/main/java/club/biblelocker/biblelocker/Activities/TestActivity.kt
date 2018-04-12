@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toolbar
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
 import club.biblelocker.biblelocker.MainActivity
 import club.biblelocker.biblelocker.R
@@ -22,20 +23,31 @@ import java.util.Calendar.MINUTE
 
 class TestActivity : AppCompatActivity() {
 
+    fun getStatusBarHeight() : Int {
+        var result = 0
+        val resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
         val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val calendar = Calendar.getInstance()
-        val intent = Intent(applicationContext, AlarmReceiver::class.java)
-
-
+        setSupportActionBar(toolbar)
+        // Set the padding to match the Status Bar height
+        toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
 
         val alarmIntent = Intent(this, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(this,0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        alarm_on.setOnClickListener(View.OnClickListener {
+        alarm_on.setOnClickListener({
 
             if (Build.VERSION.SDK_INT < 23)
             {
