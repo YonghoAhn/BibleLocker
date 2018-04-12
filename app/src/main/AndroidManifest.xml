@@ -11,13 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <receiver
             android:name=".BroadcastReceiver.BootReceiver"
@@ -30,18 +24,37 @@
         <receiver
             android:name=".BroadcastReceiver.AlarmReceiver"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="club.biblelocker.ALARM_START" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".Services.RingtoneManageService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activities.TestActivity" />
+        <activity android:name=".Activities.TestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".Services.AlarmService"
             android:exported="false"></service>
+
+        <receiver
+            android:name=".BroadcastReceiver.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="club.biblelocker.ALARM_START" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
