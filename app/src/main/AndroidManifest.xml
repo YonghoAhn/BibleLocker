@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,9 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,11 +25,19 @@
             android:name=".BroadcastReceiver.BootReceiver"
             android:enabled="true"
             android:exported="true" />
-
         <receiver
             android:name=".BroadcastReceiver.AlarmReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
+
+        <activity android:name=".MotionLock" />
+        <activity android:name=".MotionLockCheck" />
+        <activity android:name=".PatternLock" />
+        <activity android:name=".PatternLockCheck" />
+        <activity android:name=".PatternTest" />
+        <activity android:name=".PinLOck" />
+        <activity android:name=".PinLock" />
+        <activity android:name=".PinLockCheck"></activity>
     </application>
 
 </manifest>
