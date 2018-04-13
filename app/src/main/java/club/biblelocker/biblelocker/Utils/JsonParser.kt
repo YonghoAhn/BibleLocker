@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker.utils
+package club.biblelocker.biblelocker.Utils
 
 import android.content.Context
 import android.util.Log

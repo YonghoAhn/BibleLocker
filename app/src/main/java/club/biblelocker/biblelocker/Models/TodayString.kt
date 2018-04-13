@@ -1,9 +1,5 @@
 package club.biblelocker.biblelocker.Models
 
-/**
- * Created by misakamoe on 2018. 4. 6..
- */
-
 data class TodayString (
         var content : String,
         var part : String,

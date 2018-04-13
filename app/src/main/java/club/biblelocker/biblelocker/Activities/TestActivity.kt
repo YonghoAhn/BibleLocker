@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import android.widget.Toolbar
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
 import club.biblelocker.biblelocker.MainActivity
@@ -40,9 +41,6 @@ class TestActivity : AppCompatActivity() {
 
         val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val calendar = Calendar.getInstance()
-        setSupportActionBar(toolbar)
-        // Set the padding to match the Status Bar height
-        toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
 
         val alarmIntent = Intent(this, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(this,0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -67,7 +65,7 @@ class TestActivity : AppCompatActivity() {
                     pendingIntent
             )
 
-
+            Toast.makeText(this,"Alarm set",Toast.LENGTH_SHORT).show()
             Log.d("MisakaMOE", "Alarm Set")
 
         })
