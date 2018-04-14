@@ -1,6 +1,7 @@
 package club.biblelocker.biblelocker.Utils
 
 import android.content.Context
+import club.biblelocker.biblelocker.Models.AlarmModel
 import java.util.*
 
 class AlarmController {
@@ -14,12 +15,13 @@ class AlarmController {
 
         @return the Index of Alarm
     */
-    /*
-    fun addAlarm(context: Context, calendar: Calendar) : Int
-    {
 
+    fun addAlarm(context: Context, alarmModel: AlarmModel) : Int
+    {
+        val db = DBHelper(context, "alarm.db",1)
+        return db.insertAlarm(db.writableDatabase,alarmModel)
     }
-    */
+
     /*
         Remove an alarm from DB and alarmManager.
 
@@ -28,10 +30,11 @@ class AlarmController {
 
         @return successful? or not?
      */
-    /*
-    fun removeAlarm(context: Context,int: Int) : Int
-    {
 
+    fun removeAlarm(context: Context, int: Int)
+    {
+        val db = DBHelper(context, "alarm.db",1)
+        db.deleteAlarm(db.writableDatabase,int)
     }
-    */
+
 }

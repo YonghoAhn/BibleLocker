@@ -20,12 +20,14 @@ class DBHelper : SQLiteOpenHelper
         db?.execSQL(AlarmDBCtrct::sqlCreateQuery.toString())
     }
 
-    fun insertAlarm(db: SQLiteDatabase, alarmModel: AlarmModel)
+    fun insertAlarm(db: SQLiteDatabase, alarmModel: AlarmModel):Int
     {
         db.beginTransaction()
         try {
             db.execSQL(AlarmDBCtrct::sqlInsertQuery.toString() + "${alarmModel.name}, ${alarmModel.days}, ${alarmModel.vibrate}, ${alarmModel.repeat}, ${alarmModel.song})")
             db.setTransactionSuccessful()
+            db.endTransaction()
+            return getDBSize(db) - 1
         }
         catch (e : Exception)
         {
@@ -34,17 +36,19 @@ class DBHelper : SQLiteOpenHelper
         finally {
             db.endTransaction()
         }
+        return 0
     }
 
-    fun deleteAlarm(db: SQLiteDatabase, id: Int)
+    fun deleteAlarm(db: SQLiteDatabase, id: Int) : Int
     {
         try {
             val deleteQuery = AlarmDBCtrct::sqlDeleteQuery.toString() + " where id=$id"
             db.execSQL(deleteQuery)
+            return 0
         }
         catch(e:Exception)
         {
-
+            return 1
         }
     }
 
