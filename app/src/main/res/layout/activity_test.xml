@@ -11,10 +11,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        android:background="@color/colorPrimary"
+        />
 
     <TabHost
+        android:id="@+id/tabHost"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,20 +44,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ScrollView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
                         <android.support.constraint.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
                             android:orientation="vertical">
 
                             <RadioGroup
+                                android:id="@+id/radioGroup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
@@ -84,13 +82,106 @@
                                     android:layout_weight="1"
                                     android:text="RadioButton" />
                             </RadioGroup>
+
+                            <NumberPicker
+                                android:id="@+id/numberPicker3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/numberPicker2"
+                                app:layout_constraintTop_toBottomOf="@+id/radioGroup"></NumberPicker>
+
+                            <NumberPicker
+                                android:id="@+id/numberPicker2"
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintEnd_toStartOf="@+id/numberPicker3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/radioGroup"></NumberPicker>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal"
+                                android:weightSum="7"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/numberPicker3"
+                                app:layout_constraintVertical_bias="0.03">
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="일" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="월" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="화" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="수" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="목" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="금" />
+
+                                <Button
+                                    android:background="@color/transparent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="토" />
+
+                            </LinearLayout>
+
+                            <ListView
+                                android:id="@+id/listView"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                >
+                            </ListView>
+
                         </android.support.constraint.ConstraintLayout>
-                    </ScrollView>
+
 
                 </android.support.constraint.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/tab2"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
