@@ -3,6 +3,7 @@ package club.biblelocker.biblelocker.Utils
 import android.content.Context
 import club.biblelocker.biblelocker.Models.AlarmModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AlarmController {
 
@@ -35,6 +36,18 @@ class AlarmController {
     {
         val db = DBHelper(context, "alarm.db",1)
         db.deleteAlarm(db.writableDatabase,int)
+    }
+
+    fun getAllAlarms(context: Context) : ArrayList<AlarmModel>
+    {
+        val db = DBHelper(context, "alarm.db",1)
+        return db.getAllAlarms(db.writableDatabase)
+    }
+
+    fun getLastId(context: Context) : Int
+    {
+        val db = DBHelper(context, "alarm.db",1)
+        return db.getDBSize(db.writableDatabase)
     }
 
 }

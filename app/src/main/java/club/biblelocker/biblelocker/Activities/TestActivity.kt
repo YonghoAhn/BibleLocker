@@ -15,7 +15,9 @@ import android.widget.Toast
 import android.widget.Toolbar
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
 import club.biblelocker.biblelocker.MainActivity
+import club.biblelocker.biblelocker.Models.AlarmModel
 import club.biblelocker.biblelocker.R
+import club.biblelocker.biblelocker.Utils.AlarmController
 import junit.framework.Test
 import kotlinx.android.synthetic.main.activity_test.*
 import java.util.*
@@ -38,8 +40,6 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
-
-
 
         val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val calendar = Calendar.getInstance()
@@ -66,6 +66,9 @@ class TestActivity : AppCompatActivity() {
                     calendar.timeInMillis,
                     pendingIntent
             )
+
+            var alarmModel = AlarmModel(AlarmController().getLastId(applicationContext),calendar.timeInMillis,"asdf",1,0,0,"")
+            AlarmController().addAlarm(applicationContext,alarmModel)
 
             Toast.makeText(this,"Alarm set",Toast.LENGTH_SHORT).show()
             Log.d("MisakaMOE", "Alarm Set")

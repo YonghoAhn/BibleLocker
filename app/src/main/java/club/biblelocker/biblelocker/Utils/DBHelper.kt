@@ -11,29 +11,28 @@ class DBHelper : SQLiteOpenHelper
 {
     val database_version = 1
     val database_name = ""
+    val alarm = AlarmDBCtrct()
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
 
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(AlarmDBCtrct::sqlCreateQuery.toString())
+        db?.execSQL(alarm.sqlCreateQuery)
     }
 
     fun insertAlarm(db: SQLiteDatabase, alarmModel: AlarmModel):Int
     {
         db.beginTransaction()
         try {
-            db.execSQL(AlarmDBCtrct::sqlInsertQuery.toString() + "${alarmModel.name}, ${alarmModel.days}, ${alarmModel.vibrate}, ${alarmModel.repeat}, ${alarmModel.song})")
+            db.execSQL(alarm.sqlInsertQuery + "'${alarmModel.name}', ${alarmModel.time}, ${alarmModel.days}, ${alarmModel.vibrate}, ${alarmModel.repeat}, '${alarmModel.song}');")
             db.setTransactionSuccessful()
             db.endTransaction()
             return getDBSize(db) - 1
         }
         catch (e : Exception)
         {
-
-        }
-        finally {
+            Log.wtf("MisakaMOE",e.message)
             db.endTransaction()
         }
         return 0
@@ -42,7 +41,7 @@ class DBHelper : SQLiteOpenHelper
     fun deleteAlarm(db: SQLiteDatabase, id: Int) : Int
     {
         try {
-            val deleteQuery = AlarmDBCtrct::sqlDeleteQuery.toString() + " where id=$id"
+            val deleteQuery = alarm.sqlDeleteQuery + " where id=$id"
             db.execSQL(deleteQuery)
             return 0
         }
@@ -54,21 +53,21 @@ class DBHelper : SQLiteOpenHelper
 
     fun clearDatabase(db: SQLiteDatabase)
     {
-        db.execSQL(AlarmDBCtrct::sqlDropQuery.toString())
+        db.execSQL(alarm.sqlDropQuery)
     }
 
     fun getAllAlarms(db: SQLiteDatabase) : ArrayList<AlarmModel>
     {
-        var alarmModel = AlarmModel(0,"",0,0,0,"")
+        var alarmModel = AlarmModel(0,0,"",0,0,0,"")
         var alarmList = ArrayList<AlarmModel>()
-        val cursor = db.rawQuery(AlarmDBCtrct::sqlSelectQuery.toString(),null)
+        val cursor = db.rawQuery(alarm.sqlSelectQuery,null)
         if(cursor!=null)
         {
             if(cursor.moveToFirst())
             {
                 while(cursor.moveToNext())
                 {
-                    alarmModel = AlarmModel(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5))
+                    alarmModel = AlarmModel(cursor.getInt(0),cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
                     alarmList.add(alarmModel)
                 }
             }
@@ -78,11 +77,11 @@ class DBHelper : SQLiteOpenHelper
 
     fun getAlarm(db: SQLiteDatabase, id:Int) : AlarmModel
     {
-        val cursor = db.rawQuery(AlarmDBCtrct::sqlSelectQuery.toString(),null)
-        var alarmModel = AlarmModel(0,"",0,0,0,"")
+        val cursor = db.rawQuery(alarm.sqlSelectQuery,null)
+        var alarmModel = AlarmModel(0,0,"",0,0,0,"")
         try {
             cursor.move(id)
-            alarmModel = AlarmModel(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5))
+            alarmModel = AlarmModel(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
         }
         catch (e:Exception)
         { Log.d("MisakaMOE", e.message) }
@@ -93,7 +92,7 @@ class DBHelper : SQLiteOpenHelper
     }
 
     fun getDBSize(db: SQLiteDatabase) : Int{
-        val cursor = db.rawQuery(AlarmDBCtrct::sqlSelectQuery.toString(),null)
+        val cursor = db.rawQuery(alarm.sqlSelectQuery,null)
         return when (cursor != null) {
             true -> cursor.count
             false -> 0

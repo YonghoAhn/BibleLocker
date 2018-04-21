@@ -47,14 +47,6 @@
             android:name=".Services.AlarmService"
             android:exported="false"></service>
 
-        <receiver
-            android:name=".BroadcastReceiver.MyReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="club.biblelocker.ALARM_START" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>
