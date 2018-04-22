@@ -26,17 +26,6 @@ import java.util.Calendar.MINUTE
 
 class TestActivity : AppCompatActivity() {
 
-    fun getStatusBarHeight() : Int {
-        var result = 0
-        val resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId)
-        }
-        return result
-    }
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -74,6 +63,11 @@ class TestActivity : AppCompatActivity() {
             Log.d("MisakaMOE", "Alarm Set")
 
         })
+
+        alarm_off.setOnClickListener {
+            AlarmController().removeAlarm(applicationContext, AlarmController().getLastId(applicationContext))
+            Toast.makeText(applicationContext,"Successfully removed.",Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

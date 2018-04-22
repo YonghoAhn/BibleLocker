@@ -43,148 +43,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-<!--
-                        <android.support.constraint.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:orientation="vertical">
-
-                            <RadioGroup
-                                android:id="@+id/radioGroup"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:orientation="horizontal"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.0">
-
-                                <RadioButton
-                                    android:id="@+id/radioButton2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="RadioButton" />
-
-                                <RadioButton
-                                    android:id="@+id/radioButton"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="RadioButton" />
-                            </RadioGroup>
-
-                            <NumberPicker
-                                android:id="@+id/numberPicker3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="24dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/numberPicker2"
-                                app:layout_constraintTop_toBottomOf="@+id/radioGroup"></NumberPicker>
-
-                            <NumberPicker
-                                android:id="@+id/numberPicker2"
-                                android:layout_width="62dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="24dp"
-                                app:layout_constraintEnd_toStartOf="@+id/numberPicker3"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/radioGroup"></NumberPicker>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginTop="8dp"
-                                android:orientation="horizontal"
-                                android:weightSum="7"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/numberPicker3"
-                                app:layout_constraintVertical_bias="0.03">
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="일" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="월" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="화" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="수" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="목" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="금" />
-
-                                <Button
-                                    android:background="@color/transparent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="토" />
-
-                            </LinearLayout>
-
-                            <ListView
-                                android:id="@+id/listView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                >
-                            </ListView>
-
-                        </android.support.constraint.ConstraintLayout>
-
--->
-                </android.support.constraint.ConstraintLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -202,7 +60,24 @@
                             android:layout_height="wrap_content"
                             android:text="Alarm on"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                        <Button
+                            android:id="@+id/alarm_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alarm off"
+                            />
                     </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
 
                 </LinearLayout>
 
