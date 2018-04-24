@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity">
+        <activity android:name=".Activities.Main2Activity">
 
         </activity>
 
         <receiver
             android:name=".BroadcastReceiver.BootReceiver"
             android:enabled="true"
-            android:exported="true" >
-<intent-filter>
+            android:exported="true">
+            <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".BroadcastReceiver.AlarmReceiver"
             android:enabled="true"
@@ -49,14 +50,14 @@
             android:name=".Services.AlarmService"
             android:exported="false"></service>
 
-        <activity android:name=".MotionLock" />
-        <activity android:name=".MotionLockCheck" />
-        <activity android:name=".PatternLock" />
-        <activity android:name=".PatternLockCheck" />
-        <activity android:name=".PatternTest" />
-        <activity android:name=".PinLock" />
-        <activity android:name=".PinLockCheck" />
-        <activity android:name=".AlarmSetting" />
+        <activity android:name=".Activities.MotionLock" />
+        <activity android:name=".Activities.MotionLockCheck" />
+        <activity android:name=".Activities.PatternLock" />
+        <activity android:name=".Activities.PatternLockCheck" />
+        <activity android:name=".Activities.PatternTest" />
+        <activity android:name=".Activities.PinLock" />
+        <activity android:name=".Activities.PinLockCheck" />
+        <activity android:name=".Activities.AlarmSetting" />
     </application>
 
 </manifest>

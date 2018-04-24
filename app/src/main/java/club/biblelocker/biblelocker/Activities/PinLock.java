@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker;
+package club.biblelocker.biblelocker.Activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import club.biblelocker.biblelocker.R;
 
 public class PinLock extends AppCompatActivity {
 

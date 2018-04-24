@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_purpletheme"
     android:orientation="vertical"
-    tools:context=".AlarmSetting">
+    tools:context=".Activities.AlarmSetting">
 
 
     <LinearLayout
