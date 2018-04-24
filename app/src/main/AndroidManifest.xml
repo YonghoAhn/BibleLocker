@@ -3,7 +3,6 @@
     package="club.biblelocker.biblelocker">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -37,7 +36,8 @@
         <activity android:name=".PatternTest" />
         <activity android:name=".PinLOck" />
         <activity android:name=".PinLock" />
-        <activity android:name=".PinLockCheck"></activity>
+        <activity android:name=".PinLockCheck" />
+        <activity android:name=".AlarmSetting" />
     </application>
 
 </manifest>
