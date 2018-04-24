@@ -1,8 +1,4 @@
-package club.biblelocker.biblelocker.models
-
-/**
- * Created by misakamoe on 2018. 4. 6..
- */
+package club.biblelocker.biblelocker.Models
 
 data class TodayString (
         var content : String,

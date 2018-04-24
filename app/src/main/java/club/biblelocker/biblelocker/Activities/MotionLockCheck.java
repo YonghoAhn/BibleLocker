@@ -1,12 +1,10 @@
-package club.biblelocker.biblelocker;
+package club.biblelocker.biblelocker.Activities;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,48 +13,45 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class MotionLock extends AppCompatActivity {
+import club.biblelocker.biblelocker.R;
 
+public class MotionLockCheck extends AppCompatActivity {
 
     Button ok, cancel;
 
     LinearLayout one, two, three, four, five, six, seven, eight, nine;
 
-    String motion_pass_result = "";
-
-    Handler mHandler = new Handler();
-
-    Vibrator vibrator;
-
+    String motion_pass_result_check = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
-
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_motion_lock);
-        ok = findViewById(R.id.make_ok);
-        cancel = findViewById(R.id.make_cancel);
-        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        one = findViewById(R.id.motion_one);
-        two = findViewById(R.id.motion_two);
-        three = findViewById(R.id.motion_three);
-        four = findViewById(R.id.motion_four);
-        five = findViewById(R.id.motion_five);
-        six = findViewById(R.id.motion_six);
-        seven = findViewById(R.id.motion_seven);
-        eight = findViewById(R.id.motion_eight);
-        nine = findViewById(R.id.motion_nine);
+        setContentView(R.layout.activity_motion_lock_check);
+        ok = findViewById(R.id.make_ok_check);
+        cancel = findViewById(R.id.make_cancel_check);
+        final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        one = findViewById(R.id.motion_one_check);
+        two = findViewById(R.id.motion_two_check);
+        three = findViewById(R.id.motion_three_check);
+        four = findViewById(R.id.motion_four_check);
+        five = findViewById(R.id.motion_five_check);
+        six = findViewById(R.id.motion_six_check);
+        seven = findViewById(R.id.motion_seven_check);
+        eight = findViewById(R.id.motion_eight_check);
+        nine = findViewById(R.id.motion_nine_check);
+
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                one.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.motion_lock_outline_light));
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("1");
+
+                motion_pass_result_check = motion_pass_result_check.concat("1");
 
             }
         });
@@ -65,7 +60,7 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("2");
+                motion_pass_result_check = motion_pass_result_check.concat("2");
 
             }
         });
@@ -74,7 +69,7 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("3");
+                motion_pass_result_check = motion_pass_result_check.concat("3");
 
             }
         });
@@ -83,7 +78,7 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("4");
+                motion_pass_result_check = motion_pass_result_check.concat("4");
 
 
             }
@@ -93,45 +88,40 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("5");
+                motion_pass_result_check = motion_pass_result_check.concat("5");
 
             }
         });
 
         six.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View v) {
-
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("6");
+                motion_pass_result_check = motion_pass_result_check.concat("6");
             }
         });
 
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("7");
+                motion_pass_result_check = motion_pass_result_check.concat("7");
             }
         });
 
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("8");
+                motion_pass_result_check = motion_pass_result_check.concat("8");
             }
         });
 
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 vibrator.vibrate(10);
-                motion_pass_result = motion_pass_result.concat("9");
+                motion_pass_result_check = motion_pass_result_check.concat("9");
             }
         });
 
@@ -139,20 +129,22 @@ public class MotionLock extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (motion_pass_result.length() < 4) {
 
-                    Toast.makeText(MotionLock.this, "적어도 4개 이상의 모션을 입력해 주세요.", Toast.LENGTH_SHORT).show();
-                    motion_pass_result = "";
-
-                } else {
-                    removePreferences();
-                    save_motionpass();
-                    Toast.makeText(MotionLock.this, motion_pass_result, Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(MotionLock.this, MotionLockCheck.class);
-                    startActivity(intent1);
+                if (check_motionpass().equals(motion_pass_result_check)) {
+                    Toast.makeText(MotionLockCheck.this, "눼 마다용", Toast.LENGTH_SHORT).show();
+                    delete_passway();
+                    save_passway();
+                    Intent intent = new Intent(MotionLockCheck.this, Main2Activity.class);
+                    startActivity(intent);
                     finish();
 
+                } else {
+                    motion_pass_result_check = "";
+                    Toast.makeText(MotionLockCheck.this, "틀렸어용...", Toast.LENGTH_SHORT).show();
+
                 }
+
+
             }
         });
 
@@ -160,12 +152,14 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 removePreferences();
-                Intent intent2 = new Intent(MotionLock.this, Main2Activity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(MotionLockCheck.this, MotionLock.class);
+                startActivity(intent);
                 finish();
+
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -173,13 +167,26 @@ public class MotionLock extends AppCompatActivity {
     }
 
 
-    private void save_motionpass() {
-
-
+    private String check_motionpass() {
         SharedPreferences pref = getSharedPreferences("motion_pass", Activity.MODE_PRIVATE);
+        String motion_pass_check = pref.getString("motion_pass", "");
+        return motion_pass_check;
+    }
+
+    private void save_passway() {
+
+        SharedPreferences pref = getSharedPreferences("pass_way", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putString("motion_pass", motion_pass_result);
+        editor.putString("pass_way", "motion");
         editor.commit();
+    }
+
+    private void delete_passway() {
+        SharedPreferences pref = getSharedPreferences("pass_way", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.remove("pass_way");
+        editor.commit();
+
     }
 
     private void removePreferences() {
@@ -188,6 +195,5 @@ public class MotionLock extends AppCompatActivity {
         editor.remove("motion_pass");
         editor.commit();
     }
-
 
 }

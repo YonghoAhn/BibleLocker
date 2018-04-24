@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker;
+package club.biblelocker.biblelocker.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import club.biblelocker.biblelocker.R;
 
 public class Main2Activity extends AppCompatActivity {
 

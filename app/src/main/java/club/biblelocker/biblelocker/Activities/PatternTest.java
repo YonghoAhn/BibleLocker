@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker;
+package club.biblelocker.biblelocker.Activities;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -20,6 +20,7 @@ import com.andrognito.rxpatternlockview.events.PatternLockCompoundEvent;
 
 import java.util.List;
 
+import club.biblelocker.biblelocker.R;
 import io.reactivex.functions.Consumer;
 
 public class PatternTest extends AppCompatActivity {
