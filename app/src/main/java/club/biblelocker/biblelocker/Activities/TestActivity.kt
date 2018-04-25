@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import android.widget.Toolbar
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
-import club.biblelocker.biblelocker.MainActivity
 import club.biblelocker.biblelocker.Models.AlarmModel
 import club.biblelocker.biblelocker.R
 import club.biblelocker.biblelocker.Utils.AlarmController

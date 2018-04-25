@@ -27,7 +27,6 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/london_hue"
-
             />
 
         <ImageView
@@ -95,8 +94,6 @@
                     android:text="오후"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -131,6 +128,7 @@
                             android:src="@drawable/triangle_top" />
 
                         <TextView
+                            android:id="@+id/txtHour"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="10"
@@ -178,6 +176,7 @@
                             android:src="@drawable/triangle_top" />
 
                         <TextView
+                            android:id="@+id/txtMin"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="10"
@@ -305,6 +304,7 @@
                 android:textSize="22sp" />
 
             <TextView
+                android:id="@+id/txtSong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
@@ -339,7 +339,7 @@
                 android:layout_height="match_parent">
 
                 <SeekBar
-
+                    android:id="@+id/seekVolume"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -378,6 +378,7 @@
                 android:paddingRight="20dp">
 
                 <Switch
+                    android:id="@+id/swVibrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -415,6 +416,7 @@
                 android:paddingRight="20dp">
 
                 <Switch
+                    android:id="@+id/swRepeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
