@@ -1,6 +1,7 @@
-package club.biblelocker.biblelocker.Activities;
+package club.biblelocker.biblelocker;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -12,21 +13,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import club.biblelocker.biblelocker.R;
+import com.github.ajalt.reprint.core.Reprint;
+
 
 public class Main2Activity extends AppCompatActivity {
 
-    LinearLayout motionlock, pinlock, patternlock;
+    LinearLayout motionlock, pinlock, patternlock, fingerlock;
     ImageView test_pattern;
     TextView now;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Context mContext=this;
+        Reprint.initialize(mContext);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2);
-
 
 
         motionlock = findViewById(R.id.motion_lock);
@@ -34,6 +37,38 @@ public class Main2Activity extends AppCompatActivity {
         now = findViewById(R.id.nowwhat);
         test_pattern = findViewById(R.id.pattern_testimg);
         patternlock = findViewById(R.id.pattern_lock);
+        fingerlock = findViewById(R.id.fingerprint);
+
+
+
+        fingerlock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                boolean hasPrint = Reprint.isHardwarePresent();
+                boolean hasRegister = Reprint.hasFingerprintRegistered();
+
+                if (hasPrint == true) {
+                    if (hasRegister == true) {
+
+                        Toast.makeText(Main2Activity.this, "지문인식 잠금이 설정되었습니다.", Toast.LENGTH_SHORT).show();
+
+
+                    } else {
+                        Toast.makeText(Main2Activity.this, "등록된 지문이 없습니다.\n지문을 등록해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+
+                    Toast.makeText(Main2Activity.this, "지문 인식 기기가 아닙니다.", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+        });
+
 
         test_pattern.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +121,12 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+
     private String check_pinpass() {
         SharedPreferences pref = getSharedPreferences("pass_way", Activity.MODE_PRIVATE);
         String motion_pass_check = pref.getString("pass_way", "");
         return motion_pass_check;
     }
+
+
 }

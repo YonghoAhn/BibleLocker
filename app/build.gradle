@@ -8,7 +8,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "club.biblelocker.biblelocker"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -33,4 +33,8 @@ dependencies {
     implementation 'com.dshantanu.androidsquareslib:androidsquareslib:1.0'
     implementation 'com.andrognito.patternlockview:patternlockview:1.0.0'
     implementation 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+    implementation 'com.github.ajalt.reprint:core:3.2.1@aar'
+    implementation 'com.github.ajalt.reprint:reprint_spass:3.2.1@aar'
+    implementation 'com.github.ajalt.reprint:rxjava:3.2.1@aar'
+    implementation 'com.github.ajalt.reprint:rxjava2:3.2.1@aar'
 }
