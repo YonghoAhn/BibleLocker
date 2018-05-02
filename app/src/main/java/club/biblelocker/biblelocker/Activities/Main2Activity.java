@@ -1,4 +1,4 @@
-package club.biblelocker.biblelocker;
+package club.biblelocker.biblelocker.Activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.ajalt.reprint.core.Reprint;
+
+import club.biblelocker.biblelocker.Activities.MotionLock;
+import club.biblelocker.biblelocker.Activities.PatternLock;
+import club.biblelocker.biblelocker.Activities.PatternTest;
+import club.biblelocker.biblelocker.Activities.PinLock;
+import club.biblelocker.biblelocker.R;
 
 
 public class Main2Activity extends AppCompatActivity {
