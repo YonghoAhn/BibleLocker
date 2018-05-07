@@ -12,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Main2Activity"></activity>
-
         <receiver
             android:name=".BroadcastReceiver.BootReceiver"
             android:enabled="true"
@@ -48,14 +46,15 @@
             android:name=".Services.AlarmService"
             android:exported="false" />
 
-        <activity android:name=".Activities.MotionLock" />
-        <activity android:name=".Activities.MotionLockCheck" />
-        <activity android:name=".Activities.PatternLock" />
-        <activity android:name=".Activities.PatternLockCheck" />
         <activity android:name=".Activities.PatternTest" />
-        <activity android:name=".Activities.PinLock" />
-        <activity android:name=".Activities.PinLockCheck" />
-        <activity android:name=".Activities.AlarmSetActivity"></activity>
+        <activity android:name=".Activities.AlarmSetActivity" />
+        <activity android:name=".Activities.MotionLockActivity" />
+        <activity android:name=".Activities.MotionLockCheckActivity" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.PatternLockActivity" />
+        <activity android:name=".Activities.PatternLockCheckActivity" />
+        <activity android:name=".Activities.PinLockActivity" />
+        <activity android:name=".Activities.PinLockCheckActivity"></activity>
     </application>
 
 </manifest>

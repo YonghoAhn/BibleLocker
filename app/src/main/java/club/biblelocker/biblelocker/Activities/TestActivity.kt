@@ -55,7 +55,7 @@ class TestActivity : AppCompatActivity() {
                     pendingIntent
             )
 
-            var alarmModel = AlarmModel(AlarmController().getLastId(applicationContext),calendar.timeInMillis,"asdf",1,0,0,"")
+            var alarmModel = AlarmModel(AlarmController().getLastId(applicationContext),calendar.timeInMillis,"asdf","",0,0,"")
             AlarmController().addAlarm(applicationContext,alarmModel)
 
             Toast.makeText(this,"Alarm set",Toast.LENGTH_SHORT).show()

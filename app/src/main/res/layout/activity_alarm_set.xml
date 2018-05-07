@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_purpletheme"
     android:orientation="vertical"
-    tools:context=".Activities.AlarmSetting">
-
+>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -215,6 +214,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/btnMon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -224,6 +224,7 @@
                     android:textSize="25sp" />
 
                 <TextView
+                    android:id="@+id/btnTue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -233,6 +234,7 @@
                     android:textSize="25sp" />
 
                 <TextView
+                    android:id="@+id/btnWed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -242,6 +244,7 @@
                     android:textSize="25sp" />
 
                 <TextView
+                    android:id="@+id/btnThu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -413,7 +416,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="right|center_vertical"
-                android:paddingRight="20dp">
+                android:paddingEnd="20dp">
 
                 <Switch
                     android:id="@+id/swRepeat"

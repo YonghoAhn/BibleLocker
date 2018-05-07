@@ -423,7 +423,7 @@
                     android:background="@drawable/round_outline">
 
                     <LinearLayout
-                        android:id="@+id/pin_lock"
+                        android:id="@+id/pin_lock_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -486,7 +486,7 @@
                     android:background="@drawable/round_outline">
 
                     <LinearLayout
-                        android:id="@+id/motion_lock"
+                        android:id="@+id/motion_lock_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"

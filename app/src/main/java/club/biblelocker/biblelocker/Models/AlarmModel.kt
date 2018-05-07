@@ -6,7 +6,7 @@ package club.biblelocker.biblelocker.Models
 class AlarmModel(val id:Int,
                  val time:Long,
                  val name:String,
-                 val days:Int,
+                 val days:String,
                  val vibrate : Int,
                  val repeat : Int,
                  val song : String)
