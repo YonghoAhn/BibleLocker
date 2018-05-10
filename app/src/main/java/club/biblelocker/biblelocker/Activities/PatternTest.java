@@ -1,5 +1,6 @@
 package club.biblelocker.biblelocker.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -63,6 +64,7 @@ public class PatternTest extends AppCompatActivity {
     };
 
 
+    @SuppressLint("CheckResult")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,16 +15,12 @@ import android.widget.Toast;
 
 import com.github.ajalt.reprint.core.Reprint;
 
-import club.biblelocker.biblelocker.Activities.MotionLock;
-import club.biblelocker.biblelocker.Activities.PatternLock;
-import club.biblelocker.biblelocker.Activities.PatternTest;
-import club.biblelocker.biblelocker.Activities.PinLock;
 import club.biblelocker.biblelocker.R;
 
 
 public class Main2Activity extends AppCompatActivity {
 
-    LinearLayout motionlock, pinlock, patternlock, fingerlock;
+    LinearLayout motionlock, pinlock, patternlock, fingerlock, passlock;
     ImageView test_pattern;
     TextView now;
 
@@ -44,6 +40,15 @@ public class Main2Activity extends AppCompatActivity {
         test_pattern = findViewById(R.id.pattern_testimg);
         patternlock = findViewById(R.id.pattern_lock);
         fingerlock = findViewById(R.id.fingerprint);
+        passlock = findViewById(R.id.passtext);
+
+        passlock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentt = new Intent(Main2Activity.this, PasswordLock.class);
+                startActivity(intentt);
+            }
+        });
 
 
 

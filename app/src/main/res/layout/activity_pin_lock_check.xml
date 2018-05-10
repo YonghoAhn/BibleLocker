@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="비밀번호 설정"
+                    android:text="PIN 설정"
                     android:textColor="@color/white"
                     android:textSize="38sp" />
 
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="17dp"
-                    android:text="설정한 비밀번호를 다시 입력해 주세요."
+                    android:text="설정한 PIN은 다시 입력해 주세요."
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 

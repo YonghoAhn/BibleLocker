@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 import club.biblelocker.biblelocker.R;
 
 public class MotionLockCheck extends AppCompatActivity {
@@ -24,7 +25,6 @@ public class MotionLockCheck extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
 
         super.onCreate(savedInstanceState);
