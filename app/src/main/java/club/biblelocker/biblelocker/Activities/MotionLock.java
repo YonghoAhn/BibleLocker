@@ -56,7 +56,6 @@ public class MotionLock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                one.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.motion_lock_outline_light));
                 vibrator.vibrate(10);
                 motion_pass_result = motion_pass_result.concat("1");
 

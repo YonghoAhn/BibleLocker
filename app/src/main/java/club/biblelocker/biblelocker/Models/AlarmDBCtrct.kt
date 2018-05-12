@@ -1,10 +1,9 @@
 package club.biblelocker.biblelocker.Models
 
-class AlarmDBCtrct
-{
+class AlarmDBCtrct {
     val table = "ALARM"
     val id = "ID"
-    val time="TIME"
+    val time = "TIME"
     val name = "NAME"
     val days = "DAYS"
     val vibrate = "VIBRATE"

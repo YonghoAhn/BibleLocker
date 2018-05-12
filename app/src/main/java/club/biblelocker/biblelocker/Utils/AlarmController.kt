@@ -17,10 +17,9 @@ class AlarmController {
         @return the Index of Alarm
     */
 
-    fun addAlarm(context: Context, alarmModel: AlarmModel) : Int
-    {
-        val db = DBHelper(context, "alarm.db",1)
-        return db.insertAlarm(db.writableDatabase,alarmModel)
+    fun addAlarm(context: Context, alarmModel: AlarmModel): Int {
+        val db = DBHelper(context, "alarm.db", 1)
+        return db.insertAlarm(db.writableDatabase, alarmModel)
     }
 
     /*
@@ -32,21 +31,18 @@ class AlarmController {
         @return successful? or not?
      */
 
-    fun removeAlarm(context: Context, int: Int)
-    {
-        val db = DBHelper(context, "alarm.db",1)
-        db.deleteAlarm(db.writableDatabase,int)
+    fun removeAlarm(context: Context, int: Int) {
+        val db = DBHelper(context, "alarm.db", 1)
+        db.deleteAlarm(db.writableDatabase, int)
     }
 
-    fun getAllAlarms(context: Context) : ArrayList<AlarmModel>
-    {
-        val db = DBHelper(context, "alarm.db",1)
+    fun getAllAlarms(context: Context): ArrayList<AlarmModel> {
+        val db = DBHelper(context, "alarm.db", 1)
         return db.getAllAlarms(db.writableDatabase)
     }
 
-    fun getLastId(context: Context) : Int
-    {
-        val db = DBHelper(context, "alarm.db",1)
+    fun getLastId(context: Context): Int {
+        val db = DBHelper(context, "alarm.db", 1)
         return db.getDBSize(db.writableDatabase)
     }
 

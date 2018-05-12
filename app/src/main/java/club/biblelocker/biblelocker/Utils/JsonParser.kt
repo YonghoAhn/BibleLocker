@@ -10,8 +10,7 @@ import java.util.*
 
 class JsonParser {
 
-    fun getBuddaString(context : Context, length: Int) : TodayString
-    {
+    fun getBuddaString(context: Context, length: Int): TodayString {
         val returnValue = TodayString("", "", 0, 0, 0, 1)
         try {
             val jArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.budda)).readText()).getJSONObject(length).getJSONArray("sentences")
@@ -27,16 +26,16 @@ class JsonParser {
     }
 
     fun getNewBibleString(context: Context, length: Int): TodayString {
-        var returnValue = getBibleString(context,0,length)
+        var returnValue = getBibleString(context, 0, length)
         return returnValue
     }
 
-    fun getOldBibleString(context: Context, length : Int): TodayString {
-        var returnValue = getBibleString(context,1,length)
+    fun getOldBibleString(context: Context, length: Int): TodayString {
+        var returnValue = getBibleString(context, 1, length)
         return returnValue
     }
 
-    fun getBibleString(context: Context, time : Int, length: Int): TodayString {
+    fun getBibleString(context: Context, time: Int, length: Int): TodayString {
         val returnValue = TodayString("", "", 0, 0, 0, 1)
 
         try {

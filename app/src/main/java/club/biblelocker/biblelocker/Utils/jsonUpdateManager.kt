@@ -6,8 +6,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class jsonUpdateManager {
-    fun checkUpdate() : Int
-    {
+    fun checkUpdate(): Int {
         val url = "URL"
         val obj = URL(url)
 
@@ -33,11 +32,9 @@ class jsonUpdateManager {
         }
     }
 
-    fun getUpdate(kind : Int)
-    {
+    fun getUpdate(kind: Int) {
         val url = "http://asdf.com/getUpdate/"
-        when(kind)
-        {
+        when (kind) {
             0 -> url + "bible"
             1 -> url + "budda"
             2 -> url + "idiom"

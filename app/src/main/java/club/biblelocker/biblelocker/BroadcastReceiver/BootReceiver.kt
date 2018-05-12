@@ -14,12 +14,11 @@ class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         val alarms = AlarmController().getAllAlarms(context)
-        val alarmManager : AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val alarmManager: AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val alarmIntent = Intent(context, AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(context,0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-        Log.d("MisakaMOE","Boot")
-        for(alarm in alarms)
-        {
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        Log.d("MisakaMOE", "Boot")
+        for (alarm in alarms) {
             Log.d("MisakaMOE", "alarm exist")
             alarmManager.set(
                     RTC_WAKEUP,

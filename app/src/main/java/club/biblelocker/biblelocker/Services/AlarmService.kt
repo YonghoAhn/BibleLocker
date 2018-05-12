@@ -12,7 +12,7 @@ class AlarmService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Toast.makeText(this,"Alarm",LENGTH_SHORT).show()
+        Toast.makeText(this, "Alarm", LENGTH_SHORT).show()
 
         return START_NOT_STICKY
     }

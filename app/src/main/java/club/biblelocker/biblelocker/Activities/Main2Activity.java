@@ -27,7 +27,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context mContext=this;
+        Context mContext = this;
         Reprint.initialize(mContext);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -47,9 +47,9 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentt = new Intent(Main2Activity.this, PasswordLock.class);
                 startActivity(intentt);
+                finish();
             }
         });
-
 
 
         fingerlock.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,6 @@ public class Main2Activity extends AppCompatActivity {
 
                     Toast.makeText(Main2Activity.this, "지문 인식 기기가 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
-
 
 
             }
