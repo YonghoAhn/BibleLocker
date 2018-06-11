@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import android.widget.Toolbar
 import club.biblelocker.biblelocker.BroadcastReceiver.AlarmReceiver
-import club.biblelocker.biblelocker.MainActivity
 import club.biblelocker.biblelocker.Models.AlarmModel
 import club.biblelocker.biblelocker.R
 import club.biblelocker.biblelocker.Utils.AlarmController
@@ -56,7 +55,7 @@ class TestActivity : AppCompatActivity() {
                     pendingIntent
             )
 
-            var alarmModel = AlarmModel(AlarmController().getLastId(applicationContext),calendar.timeInMillis,"asdf",1,0,0,"")
+            var alarmModel = AlarmModel(AlarmController().getLastId(applicationContext),calendar.timeInMillis,"asdf","",0,0,"")
             AlarmController().addAlarm(applicationContext,alarmModel)
 
             Toast.makeText(this,"Alarm set",Toast.LENGTH_SHORT).show()

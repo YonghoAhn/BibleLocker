@@ -58,7 +58,7 @@ class DBHelper : SQLiteOpenHelper
 
     fun getAllAlarms(db: SQLiteDatabase) : ArrayList<AlarmModel>
     {
-        var alarmModel = AlarmModel(0,0,"",0,0,0,"")
+        var alarmModel = AlarmModel(0,0,"","",0,0,"")
         var alarmList = ArrayList<AlarmModel>()
         val cursor = db.rawQuery(alarm.sqlSelectQuery,null)
         if(cursor!=null)
@@ -67,7 +67,7 @@ class DBHelper : SQLiteOpenHelper
             {
                 while(cursor.moveToNext())
                 {
-                    alarmModel = AlarmModel(cursor.getInt(0),cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
+                    alarmModel = AlarmModel(cursor.getInt(0),cursor.getLong(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
                     alarmList.add(alarmModel)
                 }
             }
@@ -78,10 +78,10 @@ class DBHelper : SQLiteOpenHelper
     fun getAlarm(db: SQLiteDatabase, id:Int) : AlarmModel
     {
         val cursor = db.rawQuery(alarm.sqlSelectQuery,null)
-        var alarmModel = AlarmModel(0,0,"",0,0,0,"")
+        var alarmModel = AlarmModel(0,0,"","",0,0,"")
         try {
             cursor.move(id)
-            alarmModel = AlarmModel(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
+            alarmModel = AlarmModel(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6))
         }
         catch (e:Exception)
         { Log.d("MisakaMOE", e.message) }

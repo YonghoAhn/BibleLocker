@@ -3,6 +3,7 @@
     package="club.biblelocker.biblelocker">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Main2Activity">
-
-        </activity>
-
         <receiver
             android:name=".BroadcastReceiver.BootReceiver"
             android:enabled="true"
@@ -23,7 +20,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".BroadcastReceiver.AlarmReceiver"
             android:enabled="true"
@@ -48,16 +44,17 @@
 
         <service
             android:name=".Services.AlarmService"
-            android:exported="false"></service>
+            android:exported="false" />
 
-        <activity android:name=".Activities.MotionLock" />
-        <activity android:name=".Activities.MotionLockCheck" />
-        <activity android:name=".Activities.PatternLock" />
-        <activity android:name=".Activities.PatternLockCheck" />
         <activity android:name=".Activities.PatternTest" />
-        <activity android:name=".Activities.PinLock" />
-        <activity android:name=".Activities.PinLockCheck" />
-        <activity android:name=".Activities.AlarmSetting" />
+        <activity android:name=".Activities.AlarmSetActivity" />
+        <activity android:name=".Activities.MotionLockActivity" />
+        <activity android:name=".Activities.MotionLockCheckActivity" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.PatternLockActivity" />
+        <activity android:name=".Activities.PatternLockCheckActivity" />
+        <activity android:name=".Activities.PinLockActivity" />
+        <activity android:name=".Activities.PinLockCheckActivity"></activity>
     </application>
 
 </manifest>
